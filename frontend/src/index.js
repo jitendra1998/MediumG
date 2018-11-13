@@ -3,18 +3,19 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
+import data from './components/data';
+
 
 import  Root  from './components/Root';
 import Articles from './components/Articles';
-//import { Article } from './components/Article';
+import  Article  from './components/Article';
 
-        //<Route path={"article/:id"} component={Article} />
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data:''
+      data:data
     };
 
     this.setData = this.setData.bind(this);
@@ -54,6 +55,8 @@ class App extends React.Component {
       	<div>
         <Route exact={true} path={"/"} component={ () => <Root />} />
         <Route path={"/articles/:tag"} component={ () => <Articles get = {this.getData} set={this.setData} data={this.state.data}/>} />
+        <Route path="/article/:artid"  component={ () => <Article data={this.state.data} /> } />
+      	
       	</div>
       </BrowserRouter>
     );

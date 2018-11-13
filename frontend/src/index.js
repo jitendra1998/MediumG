@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
-import data from './components/data';
+//import data from './components/data';
 
 
 import  Root  from './components/Root';
@@ -15,7 +15,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data:data
+      data:[]
     };
 
     this.setData = this.setData.bind(this);
@@ -29,6 +29,7 @@ class App extends React.Component {
   }
 
   getData(tag) {
+  	if (this.state.data.length ===0) {
   	axios.get('http://localhost:5000', {
   		params: {
     		tag: tag
@@ -37,17 +38,9 @@ class App extends React.Component {
 	.then((response) => {
       this.setState({data:response.data})
     })
+	}
   }
 
-  shouldComponentUpdate(nextProps, nextState){
-  	if (this.state.data === "") {
-  		return true
-  	}
-  	else {
-  		return false
-  	}
-    
-  }
 
   render() {
     return (

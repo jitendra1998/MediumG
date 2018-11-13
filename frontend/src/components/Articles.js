@@ -6,7 +6,10 @@ import { Button, Jumbotron } from 'react-bootstrap';
 import './Root.css';
 
 class Articles extends Component {
-  
+   
+  componentDidMount() {
+    this.props.get(this.props.location.state.tag)
+  }
   render() {
  
     return (

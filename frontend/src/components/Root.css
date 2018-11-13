@@ -1,3 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
 .App{
   margin-top: 8%;
 } 
@@ -5,12 +16,14 @@
 .navbar {
   position: fixed;
   z-index: 500;
-  width: 100%;
+  width: 150%;
   height: 80px;
   box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
   background: rgba(255,255,255,.97)!important;
   bottom: 0px;
   top: 0px;
+  left: 0px;
+  right: 0px;
 }
 
 .title {
@@ -27,7 +40,7 @@
 
 .search-bar {
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
@@ -79,4 +92,21 @@ width:100%;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 1px rgba(0, 109, 0, 0.8);
           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 1px rgba(0, 109, 0, 0.8);
+}
+
+.jumbo {
+  margin-bottom: 50px;
+  z-index: 200;
+  box-shadow: 6px 6px 6px 6px rgba(0,0,0,0.1)!important;
+  background: rgba(255,255,255,.97)!important;
+
+}
+
+.time p{
+ font-size: 14px;
+     margin:0;
+    padding-right:10px;
+    display: inline-block;
+    line-height: 8px;
+
 }

@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { withRouter } from "react-router";
 
-class App extends Component {
+//import logo from './logo.svg';
+import './Root.css';
+
+class Root extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {
+      value: '',
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.history.push({
+      pathname: '/articles/'+ this.state.value,
+      state: { tag: this.state.value }
+    });
   }
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
+  handleChange(event) {
+    this.setState({value: event.target.value});
   }
 
   render() {
@@ -48,7 +55,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(Root);
 
 
 

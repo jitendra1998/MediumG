@@ -2,11 +2,10 @@ from flask import Flask, request
 import requests
 from lxml import html
 import json
-
+from server import app
 from flask_cors import CORS, cross_origin
 
 
-app = Flask(__name__)
 
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -93,5 +92,4 @@ def data():
 	print(data)
 	return data
 
-if __name__ == '__main__':
-    app.run(debug=True)
+

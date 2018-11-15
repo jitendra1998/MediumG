@@ -24,7 +24,7 @@ class Articles extends Component {
         this.getData(this.props.location.state.tag)
   }
   getData(tag) {
-        axios.get('http://localhost:5000', {
+        axios.get('https://mediumg-api.herokuapp.com', {
           params: {
             tag: tag
           }
@@ -33,7 +33,7 @@ class Articles extends Component {
           var articles = Array.apply(null, Array(10)).map(Number.prototype.valueOf,0);
           response.data.map((i,index) => {
             if(index<=10) {
-            axios.get('http://localhost:5000/data1', {
+            axios.get('https://mediumg-api.herokuapp.com/data1', {
               params: {
                 tag: tag,
                 i: i

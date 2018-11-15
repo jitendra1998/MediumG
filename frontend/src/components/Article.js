@@ -22,7 +22,7 @@ class Article extends Component {
         this.getData(this.props.match.params.artid, this.props.match.params.uname)
   }
   getData(artid,uname) {
-        axios.get('http://localhost:5000/data', {
+        axios.get('https://mediumg-api.herokuapp.com/data', {
           params: {
             artid: artid,
             uname: uname

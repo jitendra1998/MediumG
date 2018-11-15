@@ -12,43 +12,17 @@ import  Article  from './components/Article';
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data:[]
-    };
 
-    this.setData = this.setData.bind(this);
-    this.getData = this.getData.bind(this);
-  }
-
-  setData(newData) {
-    this.setState({
-      data: newData
-    });
-  }
-
-  getData(tag) {
-  	if (this.state.data.length ===0) {
-  	axios.get('http://localhost:5000', {
-  		params: {
-    		tag: tag
-  		}
-	})      
-	.then((response) => {
-      this.setState({data:response.data})
-    })
-	}
-  }
+  
 
 
   render() {
     return (
       <BrowserRouter>
       	<div>
-        <Route exact={true} path={"/"} component={ () => <Root />} />
-        <Route path={"/articles/:tag"} component={ () => <Articles get = {this.getData} set={this.setData} data={this.state.data}/>} />
-        <Route path="/article/:artid"  component={ () => <Article data={this.state.data} /> } />
+        <Route exact={true} path={"/"} component={ () => <Root /> } />
+        <Route path={"/articles/:tag"} component={ () => <Articles /> } />
+        <Route path="/article/:uname/:artid"  component={ () => <Article /> } />
       	
       	</div>
       </BrowserRouter>
